@@ -1,5 +1,23 @@
 # DMMAffiDBEntity
 
+## マイグレーション事前準備
+
+### コメントアウト
+
+```
+public ApplicationDbContext ( string connectionStrings ) => _connectionStrings = connectionStrings;
+```
+
+```
+optionsBuilder.UseNpgsql ( _connectionStrings );
+```
+
+### コメントアウト解除
+
+```
+//optionsBuilder.UseNpgsql ( "Host=localhost;Port=5433;Database=dmm_affi;Username=postgres;Password=postgres;" );
+```
+
 ## DB マイグレーション
 
 ```
