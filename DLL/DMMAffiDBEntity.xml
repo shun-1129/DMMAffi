@@ -9,9 +9,25 @@
             アプリケーションDBコンテキスト
             </summary>
         </member>
+        <member name="F:DMMAffiDBEntity.ApplicationDbContext._connectionStrings">
+            <summary>
+            DB接続文字列
+            </summary>
+        </member>
+        <member name="M:DMMAffiDBEntity.ApplicationDbContext.#ctor(System.String)">
+            <summary>
+            デフォルトコンストラクタ
+            </summary>
+            <param name="connectionStrings"></param>
+        </member>
         <member name="P:DMMAffiDBEntity.ApplicationDbContext.MAffiliateUsers">
             <summary>
-            
+            アフィリエイトユーザマスタ
+            </summary>
+        </member>
+        <member name="P:DMMAffiDBEntity.ApplicationDbContext.TProducts">
+            <summary>
+            商品テーブル
             </summary>
         </member>
         <member name="M:DMMAffiDBEntity.ApplicationDbContext.OnConfiguring(Microsoft.EntityFrameworkCore.DbContextOptionsBuilder)">

@@ -9,11 +9,44 @@ namespace DMMAffiDBEntity
     /// </summary>
     public class ApplicationDbContext : DbContext
     {
+        #region メンバ変数
         /// <summary>
-        /// 
+        /// DB接続文字列
+        /// </summary>
+        private string _connectionStrings = "Host=localhost;Port=5433;Database=dmm_affi;Username=postgres;Password=postgres;";
+        #endregion
+
+        #region コンストラクタ
+        /// <summary>
+        /// デフォルトコンストラクタ
+        /// </summary>
+        /// <param name="connectionStrings"></param>
+        public ApplicationDbContext ( string  connectionStrings )
+        {
+            _connectionStrings = connectionStrings;
+        }
+        #endregion
+
+        #region DbSet
+        #region マスタ
+        /// <summary>
+        /// アフィリエイトユーザマスタ
         /// </summary>
         public DbSet<MAffiliateUser> MAffiliateUsers { get; set; }
+        #endregion
 
+        #region システム
+        #endregion
+
+        #region トランザクション
+        /// <summary>
+        /// 商品テーブル
+        /// </summary>
+        public DbSet<TProduct> TProducts { get; set; }
+        #endregion
+        #endregion
+
+        #region メソッド
         /// <summary>
         /// 
         /// </summary>
@@ -21,7 +54,7 @@ namespace DMMAffiDBEntity
         protected override void OnConfiguring ( DbContextOptionsBuilder optionsBuilder )
         {
             // DB接続
-            optionsBuilder.UseNpgsql ( "Host=localhost;Port=5433;Database=dmm_affi;Username=postgres;Password=postgres;" );
+            optionsBuilder.UseNpgsql ( _connectionStrings );
             // 時間設定
             AppContext.SetSwitch ( "Npgsql.EnableLegacyTimestampBehavior" , true );
         }
@@ -54,5 +87,6 @@ namespace DMMAffiDBEntity
             } );
             #endregion
         }
+        #endregion
     }
 }
