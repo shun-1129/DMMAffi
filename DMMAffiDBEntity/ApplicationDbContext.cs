@@ -21,10 +21,7 @@ namespace DMMAffiDBEntity
         /// デフォルトコンストラクタ
         /// </summary>
         /// <param name="connectionStrings"></param>
-        public ApplicationDbContext ( string  connectionStrings )
-        {
-            _connectionStrings = connectionStrings;
-        }
+        public ApplicationDbContext ( string connectionStrings ) => _connectionStrings = connectionStrings;
         #endregion
 
         #region DbSet
@@ -43,6 +40,10 @@ namespace DMMAffiDBEntity
         /// 商品テーブル
         /// </summary>
         public DbSet<TProduct> TProducts { get; set; }
+        /// <summary>
+        /// 商品詳細テーブル
+        /// </summary>
+        public DbSet<TProductDetail> TProductDetails { get; set; }
         #endregion
         #endregion
 
@@ -55,6 +56,7 @@ namespace DMMAffiDBEntity
         {
             // DB接続
             optionsBuilder.UseNpgsql ( _connectionStrings );
+            //optionsBuilder.UseNpgsql ( "Host=localhost;Port=5433;Database=dmm_affi;Username=postgres;Password=postgres;" );
             // 時間設定
             AppContext.SetSwitch ( "Npgsql.EnableLegacyTimestampBehavior" , true );
         }
@@ -84,6 +86,11 @@ namespace DMMAffiDBEntity
                 entity.HasKey ( x => x.Id ).HasName ( "t_product_PKC" );
                 entity.Property ( x => x.Id ).HasColumnType ( "bigserial" );
                 entity.Property ( x => x.ProductContent ).HasColumnType ( "jsonb" );
+            } );
+            // 商品詳細テーブル
+            modelBuilder.Entity<TProductDetail> ( entity =>
+            {
+                entity.HasKey ( x => x.ProductId ).HasName ( "t_product_detail_PKC" );
             } );
             #endregion
         }

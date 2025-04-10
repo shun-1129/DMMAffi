@@ -30,6 +30,11 @@
             商品テーブル
             </summary>
         </member>
+        <member name="P:DMMAffiDBEntity.ApplicationDbContext.TProductDetails">
+            <summary>
+            商品詳細テーブル
+            </summary>
+        </member>
         <member name="M:DMMAffiDBEntity.ApplicationDbContext.OnConfiguring(Microsoft.EntityFrameworkCore.DbContextOptionsBuilder)">
             <summary>
             
@@ -117,6 +122,31 @@
             商品内容
             </summary>
         </member>
+        <member name="T:DMMAffiDBEntity.Entities.Transaction.TProductDetail">
+            <summary>
+            商品詳細テーブル
+            </summary>
+        </member>
+        <member name="P:DMMAffiDBEntity.Entities.Transaction.TProductDetail.ProductId">
+            <summary>
+            商品ID
+            </summary>
+        </member>
+        <member name="P:DMMAffiDBEntity.Entities.Transaction.TProductDetail.DMMContentId">
+            <summary>
+            DMM 商品ID
+            </summary>
+        </member>
+        <member name="P:DMMAffiDBEntity.Entities.Transaction.TProductDetail.DMMProductId">
+            <summary>
+            DMM 品番ID
+            </summary>
+        </member>
+        <member name="P:DMMAffiDBEntity.Entities.Transaction.TProductDetail.Title">
+            <summary>
+            タイトル
+            </summary>
+        </member>
         <member name="T:DMMAffiDBEntity.Migrations.DBMigration_Ver001">
             <inheritdoc />
         </member>
@@ -139,6 +169,18 @@
             <inheritdoc />
         </member>
         <member name="M:DMMAffiDBEntity.Migrations.DBMigration_Ver002.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:DMMAffiDBEntity.Migrations.DBMigration_Ver003">
+            <inheritdoc />
+        </member>
+        <member name="M:DMMAffiDBEntity.Migrations.DBMigration_Ver003.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:DMMAffiDBEntity.Migrations.DBMigration_Ver003.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:DMMAffiDBEntity.Migrations.DBMigration_Ver003.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
             <inheritdoc />
         </member>
     </members>
