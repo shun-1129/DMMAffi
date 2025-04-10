@@ -1,0 +1,129 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>DMMAffiDBEntity</name>
+    </assembly>
+    <members>
+        <member name="T:DMMAffiDBEntity.ApplicationDbContext">
+            <summary>
+            アプリケーションDBコンテキスト
+            </summary>
+        </member>
+        <member name="P:DMMAffiDBEntity.ApplicationDbContext.MAffiliateUsers">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:DMMAffiDBEntity.ApplicationDbContext.OnConfiguring(Microsoft.EntityFrameworkCore.DbContextOptionsBuilder)">
+            <summary>
+            
+            </summary>
+            <param name="optionsBuilder"></param>
+        </member>
+        <member name="M:DMMAffiDBEntity.ApplicationDbContext.OnModelCreating(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <summary>
+            
+            </summary>
+            <param name="modelBuilder"></param>
+        </member>
+        <member name="T:DMMAffiDBEntity.Entities.BaseEntityColumn">
+            <summary>
+            共通カラムモデルクラス
+            </summary>
+        </member>
+        <member name="P:DMMAffiDBEntity.Entities.BaseEntityColumn.CreatedDate">
+            <summary>
+            作成日時
+            </summary>
+        </member>
+        <member name="P:DMMAffiDBEntity.Entities.BaseEntityColumn.CreateUser">
+            <summary>
+            作成者
+            </summary>
+        </member>
+        <member name="P:DMMAffiDBEntity.Entities.BaseEntityColumn.CreateProgram">
+            <summary>
+            作成プログラム
+            </summary>
+        </member>
+        <member name="P:DMMAffiDBEntity.Entities.BaseEntityColumn.UpdatedDate">
+            <summary>
+            更新日時
+            </summary>
+        </member>
+        <member name="P:DMMAffiDBEntity.Entities.BaseEntityColumn.UpdateUser">
+            <summary>
+            更新者
+            </summary>
+        </member>
+        <member name="P:DMMAffiDBEntity.Entities.BaseEntityColumn.UpdateProgram">
+            <summary>
+            更新プログラム
+            </summary>
+        </member>
+        <member name="T:DMMAffiDBEntity.Entities.Master.MAffiliateUser">
+            <summary>
+            アフィリエイトユーザマスタモデルクラス
+            </summary>
+        </member>
+        <member name="P:DMMAffiDBEntity.Entities.Master.MAffiliateUser.Id">
+            <summary>
+            アフィリエイトユーザマスタID
+            </summary>
+        </member>
+        <member name="P:DMMAffiDBEntity.Entities.Master.MAffiliateUser.AIPId">
+            <summary>
+            API ID
+            </summary>
+        </member>
+        <member name="P:DMMAffiDBEntity.Entities.Master.MAffiliateUser.AffiliateId">
+            <summary>
+            アフィリエイトID
+            </summary>
+        </member>
+        <member name="P:DMMAffiDBEntity.Entities.Master.MAffiliateUser.IsDeleted">
+            <summary>
+            論理削除
+            </summary>
+        </member>
+        <member name="T:DMMAffiDBEntity.Entities.Transaction.TProduct">
+            <summary>
+            商品テーブル
+            </summary>
+        </member>
+        <member name="P:DMMAffiDBEntity.Entities.Transaction.TProduct.Id">
+            <summary>
+            商品ID
+            </summary>
+        </member>
+        <member name="P:DMMAffiDBEntity.Entities.Transaction.TProduct.ProductContent">
+            <summary>
+            商品内容
+            </summary>
+        </member>
+        <member name="T:DMMAffiDBEntity.Migrations.DBMigration_Ver001">
+            <inheritdoc />
+        </member>
+        <member name="M:DMMAffiDBEntity.Migrations.DBMigration_Ver001.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:DMMAffiDBEntity.Migrations.DBMigration_Ver001.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:DMMAffiDBEntity.Migrations.DBMigration_Ver001.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:DMMAffiDBEntity.Migrations.DBMigration_Ver002">
+            <inheritdoc />
+        </member>
+        <member name="M:DMMAffiDBEntity.Migrations.DBMigration_Ver002.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:DMMAffiDBEntity.Migrations.DBMigration_Ver002.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:DMMAffiDBEntity.Migrations.DBMigration_Ver002.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+    </members>
+</doc>
