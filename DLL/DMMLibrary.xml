@@ -1,0 +1,217 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>DMMLibrary</name>
+    </assembly>
+    <members>
+        <member name="T:DMMLibrary.Common">
+            <summary>
+            共通処理クラス
+            </summary>
+        </member>
+        <member name="F:DMMLibrary.Common._apiId">
+            <summary>
+            API ID
+            </summary>
+        </member>
+        <member name="F:DMMLibrary.Common._affiliateId">
+            <summary>
+            アフィリエイトID
+            </summary>
+        </member>
+        <member name="M:DMMLibrary.Common.#ctor(System.String,System.String)">
+            <summary>
+            デフォルトコンストラクタ
+            </summary>
+            <param name="apiId">API ID</param>
+            <param name="affiliateId">アフィリエイトID</param>
+        </member>
+        <member name="M:DMMLibrary.Common.APIRequest(System.String,System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            API要求
+            </summary>
+            <param name="endPoint">エンドポイント</param>
+            <param name="keywordDict">キーワード</param>
+            <returns>検索結果</returns>
+            <exception cref="T:System.InvalidOperationException">
+            検索をした結果がnullだった場合にスローされます。
+            </exception>
+        </member>
+        <member name="M:DMMLibrary.Common.BuildQueryString(System.String,System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            クエリパラメータを手動で組み立て
+            </summary>
+            <param name="url"></param>
+            <param name="parameters"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DMMLibrary.Common.GetValue(System.Text.Json.JsonDocument,System.String)">
+            <summary>
+            Jsonから値を取得
+            </summary>
+            <param name="document"></param>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DMMLibrary.Common.GetValues(System.Text.Json.JsonDocument,System.String)">
+            <summary>
+            Jsonから値を取得
+            </summary>
+            <param name="document"></param>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="T:DMMLibrary.DMMAPI">
+            <summary>
+            DMM APIクラス
+            </summary>
+        </member>
+        <member name="F:DMMLibrary.DMMAPI._common">
+            <summary>
+            共通処理クラス
+            </summary>
+        </member>
+        <member name="M:DMMLibrary.DMMAPI.#ctor(System.String,System.String)">
+            <summary>
+            デフォルトコンストラクタ
+            </summary>
+            <param name="apiId">API ID</param>
+            <param name="affiliateId">アフィリエイトID</param>
+        </member>
+        <member name="M:DMMLibrary.DMMAPI.SearchFloor(System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            フロア検索
+            </summary>
+            <param name="keywordDict">キーワード</param>
+            <returns>検索結果</returns>
+        </member>
+        <member name="T:DMMLibrary.JsonDocumentExpansion">
+            <summary>
+            JsonDocument拡張クラス
+            </summary>
+        </member>
+        <member name="M:DMMLibrary.JsonDocumentExpansion.ConvertModelToJsonDocument``1(``0)">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DMMLibrary.JsonDocumentExpansion.ConvertJsonDocumentToModel``1(System.Text.Json.JsonDocument)">
+            <summary>
+            JsonDocument から モデルクラス T に変換する
+            </summary>
+        </member>
+        <member name="P:DMMLibrary.Models.Data.APIResult.request">
+            <summary>
+            要求
+            </summary>
+        </member>
+        <member name="P:DMMLibrary.Models.Data.APIResult.result">
+            <summary>
+            結果
+            </summary>
+        </member>
+        <member name="T:DMMLibrary.Models.Data.Floor">
+            <summary>
+            フロアモデルクラス
+            </summary>
+        </member>
+        <member name="P:DMMLibrary.Models.Data.Floor.id">
+            <summary>
+            フロアID
+            </summary>
+        </member>
+        <member name="P:DMMLibrary.Models.Data.Floor.name">
+            <summary>
+            フロア名
+            </summary>
+        </member>
+        <member name="P:DMMLibrary.Models.Data.Floor.code">
+            <summary>
+            フロアコード
+            </summary>
+        </member>
+        <member name="T:DMMLibrary.Models.Data.Request">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:DMMLibrary.Models.Data.Request.Parameters">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:DMMLibrary.Models.Data.Request.Parameters.api_id">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:DMMLibrary.Models.Data.Request.Parameters.affiliate_id">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:DMMLibrary.Models.Data.Request.Parameters.output">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:DMMLibrary.Models.Data.Request.Parameters.callback">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:DMMLibrary.Models.Data.Result">
+            <summary>
+            結果
+            </summary>
+        </member>
+        <member name="P:DMMLibrary.Models.Data.Result.site">
+            <summary>
+            サイト
+            </summary>
+        </member>
+        <member name="T:DMMLibrary.Models.Data.Service">
+            <summary>
+            サービスモデルクラス
+            </summary>
+        </member>
+        <member name="P:DMMLibrary.Models.Data.Service.name">
+            <summary>
+            サービス名
+            </summary>
+        </member>
+        <member name="P:DMMLibrary.Models.Data.Service.code">
+            <summary>
+            サービスコード
+            </summary>
+        </member>
+        <member name="P:DMMLibrary.Models.Data.Service.floor">
+            <summary>
+            フロアリスト
+            </summary>
+        </member>
+        <member name="T:DMMLibrary.Models.Data.Site">
+            <summary>
+            サイトモデルクラス
+            </summary>
+        </member>
+        <member name="P:DMMLibrary.Models.Data.Site.name">
+            <summary>
+            サイト名
+            </summary>
+        </member>
+        <member name="P:DMMLibrary.Models.Data.Site.code">
+            <summary>
+            サイトコード
+            </summary>
+        </member>
+        <member name="P:DMMLibrary.Models.Data.Site.service">
+            <summary>
+            サービスリスト
+            </summary>
+        </member>
+    </members>
+</doc>
