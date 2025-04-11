@@ -8,11 +8,7 @@
   </PropertyGroup>
 
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="xcopy &quot;$(TargetDir)$(TargetName).dll&quot; &quot;$(ProjectDir)..\DLL\&quot; /Y&#xD;&#xA;xcopy &quot;$(TargetDir)$(TargetName).xml&quot; &quot;$(ProjectDir)..\DLL\&quot; /Y" />
+    <Exec Command="xcopy &quot;$(TargetDir)$(TargetName).dll&quot; &quot;$(ProjectDir)..\DLL\&quot; /Y&#xD;&#xA;xcopy &quot;$(TargetDir)$(TargetName).xml&quot; &quot;$(ProjectDir)..\DLL\&quot; /Y&#xD;&#xA;&#xD;&#xA;if &quot;$(Configuration)&quot; == &quot;Release&quot; (&#xD;&#xA;    del &quot;$(ProjectDir)..\DLL\$(TargetName).deps.json&quot;&#xD;&#xA;    del &quot;$(ProjectDir)..\DLL\$(TargetName).pdb&quot;&#xD;&#xA;) else (&#xD;&#xA;    xcopy &quot;$(TargetDir)$(TargetName).deps.json&quot; &quot;$(ProjectDir)..\DLL\&quot; /Y&#xD;&#xA;    xcopy &quot;$(TargetDir)$(TargetName).pdb&quot; &quot;$(ProjectDir)..\DLL\&quot; /Y&#xD;&#xA;)" />
   </Target>
-
-  <ItemGroup>
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
-  </ItemGroup>
 
 </Project>

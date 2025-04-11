@@ -1,6 +1,4 @@
 ﻿using DMMLibrary.Models.Data;
-using Newtonsoft.Json.Linq;
-using System.Collections.Generic;
 using System.Text;
 using System.Text.Json;
 
@@ -40,7 +38,7 @@ namespace DMMLibrary
         /// <exception cref="InvalidOperationException">
         /// 検索をした結果がnullだった場合にスローされます。
         /// </exception>
-        public async Task<JToken> APIRequest ( string endPoint , Dictionary<string , string> keywordDict )
+        public async Task<APIResult> APIRequest ( string endPoint , Dictionary<string , string> keywordDict )
         {
             const string API_URL = "https://api.dmm.com/affiliate/v3";
             string url = API_URL + endPoint;
@@ -60,9 +58,7 @@ namespace DMMLibrary
             }
 
             string uri = BuildQueryString ( url, query );
-
-            JToken? jsonResult = new JObject ();
-
+            APIResult? result = null;
             // HttpClientを使ってリクエストを送信
             using ( HttpClient client = new HttpClient () )
             {
@@ -73,20 +69,16 @@ namespace DMMLibrary
                     // レスポンスの内容を文字列として取得
                     string content = await response.Content.ReadAsStringAsync();
 
-                    // JSONとしてパース
-                    JObject jsonResponse = JObject.Parse( content );
-
-                    // JSONから必要な情報を抽出
-                    jsonResult = jsonResponse["result"] ?? default;
+                    result = JsonSerializer.Deserialize<APIResult> ( content );
                 }
             }
 
-            if ( jsonResult == null )
+            if ( result == null )
             {
                 throw new InvalidOperationException ( "The processing result is null. Expected result was not obtained." );
             }
 
-            return jsonResult;
+            return result;
         }
 
         /// <summary>

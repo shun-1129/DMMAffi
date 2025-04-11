@@ -1,4 +1,6 @@
-﻿namespace DMMLibrary.Models.Data
+﻿using System.Text.Json.Serialization;
+
+namespace DMMLibrary.Models.Data
 {
     /// <summary>
     /// フロアモデルクラス
@@ -8,6 +10,7 @@
         /// <summary>
         /// フロアID
         /// </summary>
+        [JsonConverter ( typeof ( FlexibleIntConverter ) )]
         public int id { get; set; }
 
         /// <summary>
