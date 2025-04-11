@@ -30,6 +30,14 @@ namespace DMMAffiDBEntity
         /// アフィリエイトユーザマスタ
         /// </summary>
         public DbSet<MAffiliateUser> MAffiliateUsers { get; set; }
+        /// <summary>
+        /// フロアマスタ
+        /// </summary>
+        public DbSet<MFloor> MFloors { get; set; }
+        /// <summary>
+        /// フロア詳細マスタ
+        /// </summary>
+        public DbSet<MFloorDetail> MFloorDetails { get; set; }
         #endregion
 
         #region システム
@@ -72,6 +80,25 @@ namespace DMMAffiDBEntity
             modelBuilder.Entity<MAffiliateUser> ( entity =>
             {
                 entity.HasKey ( x => x.Id ).HasName ( "m_affiliate_user_PKC" );
+                entity.HasQueryFilter ( x => !x.IsDeleted );
+            } );
+            // フロアマスタ定義
+            modelBuilder.Entity<MFloor> ( entity =>
+            {
+                entity.HasKey ( x => x.Id ).HasName ( "m_floor_PKC" );
+                entity.HasQueryFilter ( x => !x.IsDeleted );
+            } );
+            // フロア詳細マスタ定義
+            modelBuilder.Entity<MFloorDetail> ( entity =>
+            {
+                entity.HasKey ( x => new
+                {
+                    x.FloorId ,
+                    x.DMMFloorId,
+                    x.DMMServiceName
+                } )
+                .HasName ( "m_floor_detail_PKC" );
+
                 entity.HasQueryFilter ( x => !x.IsDeleted );
             } );
             #endregion

@@ -13,8 +13,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace DMMAffiDBEntity.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20250410144030_DBMigration_Ver0.0.3")]
-    partial class DBMigration_Ver003
+    [Migration("20250411121908_DBMigration_Ver0.0.1")]
+    partial class DBMigration_Ver001
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -94,6 +94,171 @@ namespace DMMAffiDBEntity.Migrations
                     b.ToTable("m_affiliate_user", t =>
                         {
                             t.HasComment("アフィリエイトユーザマスタ");
+                        });
+                });
+
+            modelBuilder.Entity("DMMAffiDBEntity.Entities.Master.MFloor", b =>
+                {
+                    b.Property<int>("Id")
+                        .HasColumnType("integer")
+                        .HasColumnName("id")
+                        .HasComment("フロアマスタID:【値例】1");
+
+                    b.Property<JsonDocument>("Content")
+                        .IsRequired()
+                        .HasColumnType("jsonb")
+                        .HasColumnName("content")
+                        .HasComment("コンテンツ:【値例】");
+
+                    b.Property<string>("CreateProgram")
+                        .IsRequired()
+                        .HasMaxLength(128)
+                        .HasColumnType("character varying(128)")
+                        .HasColumnName("create_program")
+                        .HasComment("作成プログラム:【値例】System");
+
+                    b.Property<string>("CreateUser")
+                        .HasMaxLength(128)
+                        .HasColumnType("character varying(128)")
+                        .HasColumnName("create_user")
+                        .HasComment("作成者:【値例】System");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("timestamp without time zone")
+                        .HasColumnName("created_date")
+                        .HasComment("作成日時:【値例】2025/01/01 00:00:00");
+
+                    b.Property<string>("DMMSiteCode")
+                        .IsRequired()
+                        .HasMaxLength(128)
+                        .HasColumnType("character varying(128)")
+                        .HasColumnName("dmm_site_code")
+                        .HasComment("DMM サイトコード");
+
+                    b.Property<string>("DMMSiteName")
+                        .IsRequired()
+                        .HasMaxLength(128)
+                        .HasColumnType("character varying(128)")
+                        .HasColumnName("dmm_site_name")
+                        .HasComment("DMM サイト名");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("boolean")
+                        .HasColumnName("is_deleted")
+                        .HasComment("論理削除:【値例】false：未削除 , true：削除済み");
+
+                    b.Property<string>("UpdateProgram")
+                        .IsRequired()
+                        .HasMaxLength(128)
+                        .HasColumnType("character varying(128)")
+                        .HasColumnName("update_program")
+                        .HasComment("更新プログラム:【値例】System");
+
+                    b.Property<string>("UpdateUser")
+                        .HasMaxLength(128)
+                        .HasColumnType("character varying(128)")
+                        .HasColumnName("update_user")
+                        .HasComment("更新者:【値例】System");
+
+                    b.Property<DateTime>("UpdatedDate")
+                        .HasColumnType("timestamp without time zone")
+                        .HasColumnName("update_date")
+                        .HasComment("更新日時:【値例】2025/01/01 00:00:00");
+
+                    b.HasKey("Id")
+                        .HasName("m_floor_PKC");
+
+                    b.ToTable("m_floor", t =>
+                        {
+                            t.HasComment("フロアマスタ");
+                        });
+                });
+
+            modelBuilder.Entity("DMMAffiDBEntity.Entities.Master.MFloorDetail", b =>
+                {
+                    b.Property<int>("FloorId")
+                        .HasColumnType("integer")
+                        .HasColumnName("m_floor_id")
+                        .HasComment("フロアマスタID");
+
+                    b.Property<int>("DMMFloorId")
+                        .HasColumnType("integer")
+                        .HasColumnName("dmm_floor_id")
+                        .HasComment("DMM フロアID");
+
+                    b.Property<string>("DMMServiceName")
+                        .HasMaxLength(128)
+                        .HasColumnType("character varying(128)")
+                        .HasColumnName("dmm_service_name")
+                        .HasComment("DMM サービス名");
+
+                    b.Property<string>("CreateProgram")
+                        .IsRequired()
+                        .HasMaxLength(128)
+                        .HasColumnType("character varying(128)")
+                        .HasColumnName("create_program")
+                        .HasComment("作成プログラム:【値例】System");
+
+                    b.Property<string>("CreateUser")
+                        .HasMaxLength(128)
+                        .HasColumnType("character varying(128)")
+                        .HasColumnName("create_user")
+                        .HasComment("作成者:【値例】System");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("timestamp without time zone")
+                        .HasColumnName("created_date")
+                        .HasComment("作成日時:【値例】2025/01/01 00:00:00");
+
+                    b.Property<string>("DMMFloorCode")
+                        .IsRequired()
+                        .HasMaxLength(128)
+                        .HasColumnType("character varying(128)")
+                        .HasColumnName("dmm_floor_code")
+                        .HasComment("DMM フロアコード");
+
+                    b.Property<string>("DMMFloorName")
+                        .HasMaxLength(128)
+                        .HasColumnType("character varying(128)")
+                        .HasColumnName("dmm_floor_name")
+                        .HasComment("DMM フロア名");
+
+                    b.Property<string>("DMMServiceCode")
+                        .IsRequired()
+                        .HasMaxLength(128)
+                        .HasColumnType("character varying(128)")
+                        .HasColumnName("dmm_service_code")
+                        .HasComment("DMM サービスコード");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("boolean")
+                        .HasColumnName("is_deleted")
+                        .HasComment("論理削除:【値例】false：未削除 , true：削除済み");
+
+                    b.Property<string>("UpdateProgram")
+                        .IsRequired()
+                        .HasMaxLength(128)
+                        .HasColumnType("character varying(128)")
+                        .HasColumnName("update_program")
+                        .HasComment("更新プログラム:【値例】System");
+
+                    b.Property<string>("UpdateUser")
+                        .HasMaxLength(128)
+                        .HasColumnType("character varying(128)")
+                        .HasColumnName("update_user")
+                        .HasComment("更新者:【値例】System");
+
+                    b.Property<DateTime>("UpdatedDate")
+                        .HasColumnType("timestamp without time zone")
+                        .HasColumnName("update_date")
+                        .HasComment("更新日時:【値例】2025/01/01 00:00:00");
+
+                    b.HasKey("FloorId", "DMMFloorId", "DMMServiceName")
+                        .HasName("m_floor_detail_PKC");
+
+                    b.ToTable("m_floor_detail", t =>
+                        {
+                            t.HasComment("フロア詳細マスタ");
                         });
                 });
 

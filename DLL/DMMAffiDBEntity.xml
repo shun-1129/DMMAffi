@@ -25,6 +25,16 @@
             アフィリエイトユーザマスタ
             </summary>
         </member>
+        <member name="P:DMMAffiDBEntity.ApplicationDbContext.MFloors">
+            <summary>
+            フロアマスタ
+            </summary>
+        </member>
+        <member name="P:DMMAffiDBEntity.ApplicationDbContext.MFloorDetails">
+            <summary>
+            フロア詳細マスタ
+            </summary>
+        </member>
         <member name="P:DMMAffiDBEntity.ApplicationDbContext.TProducts">
             <summary>
             商品テーブル
@@ -107,6 +117,76 @@
             論理削除
             </summary>
         </member>
+        <member name="T:DMMAffiDBEntity.Entities.Master.MFloor">
+            <summary>
+            フロアマスタモデルクラス
+            </summary>
+        </member>
+        <member name="P:DMMAffiDBEntity.Entities.Master.MFloor.Id">
+            <summary>
+            フロアマスタID
+            </summary>
+        </member>
+        <member name="P:DMMAffiDBEntity.Entities.Master.MFloor.DMMSiteName">
+            <summary>
+            DMM サイト名
+            </summary>
+        </member>
+        <member name="P:DMMAffiDBEntity.Entities.Master.MFloor.DMMSiteCode">
+            <summary>
+            DMM サイトコード
+            </summary>
+        </member>
+        <member name="P:DMMAffiDBEntity.Entities.Master.MFloor.Content">
+            <summary>
+            内容
+            </summary>
+        </member>
+        <member name="P:DMMAffiDBEntity.Entities.Master.MFloor.IsDeleted">
+            <summary>
+            論理削除
+            </summary>
+        </member>
+        <member name="T:DMMAffiDBEntity.Entities.Master.MFloorDetail">
+            <summary>
+            フロア詳細マスタ
+            </summary>
+        </member>
+        <member name="P:DMMAffiDBEntity.Entities.Master.MFloorDetail.FloorId">
+            <summary>
+            フロアマスタID
+            </summary>
+        </member>
+        <member name="P:DMMAffiDBEntity.Entities.Master.MFloorDetail.DMMFloorId">
+            <summary>
+            DMM フロアID
+            </summary>
+        </member>
+        <member name="P:DMMAffiDBEntity.Entities.Master.MFloorDetail.DMMServiceName">
+            <summary>
+            DMM サービス名
+            </summary>
+        </member>
+        <member name="P:DMMAffiDBEntity.Entities.Master.MFloorDetail.DMMServiceCode">
+            <summary>
+            DMM サービスコード
+            </summary>
+        </member>
+        <member name="P:DMMAffiDBEntity.Entities.Master.MFloorDetail.DMMFloorName">
+            <summary>
+            DMM フロア名
+            </summary>
+        </member>
+        <member name="P:DMMAffiDBEntity.Entities.Master.MFloorDetail.DMMFloorCode">
+            <summary>
+            DMM フロアコード
+            </summary>
+        </member>
+        <member name="P:DMMAffiDBEntity.Entities.Master.MFloorDetail.IsDeleted">
+            <summary>
+            論理削除
+            </summary>
+        </member>
         <member name="T:DMMAffiDBEntity.Entities.Transaction.TProduct">
             <summary>
             商品テーブル
@@ -147,6 +227,30 @@
             タイトル
             </summary>
         </member>
+        <member name="T:DMMAffiDBEntity.MasterDataStore">
+            <summary>
+            マスタデータストア
+            </summary>
+        </member>
+        <member name="F:DMMAffiDBEntity.MasterDataStore._masterData">
+            <summary>
+            マスタデータ
+            </summary>
+        </member>
+        <member name="M:DMMAffiDBEntity.MasterDataStore.Set``1(``0)">
+            <summary>
+            データセット
+            </summary>
+            <typeparam name="T">セットするデータクラス</typeparam>
+            <param name="data">セットするデータ</param>
+        </member>
+        <member name="M:DMMAffiDBEntity.MasterDataStore.Get``1">
+            <summary>
+            データ取得
+            </summary>
+            <typeparam name="T">取得するデータクラス</typeparam>
+            <returns>データ</returns>
+        </member>
         <member name="T:DMMAffiDBEntity.Migrations.DBMigration_Ver001">
             <inheritdoc />
         </member>
@@ -157,30 +261,6 @@
             <inheritdoc />
         </member>
         <member name="M:DMMAffiDBEntity.Migrations.DBMigration_Ver001.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
-            <inheritdoc />
-        </member>
-        <member name="T:DMMAffiDBEntity.Migrations.DBMigration_Ver002">
-            <inheritdoc />
-        </member>
-        <member name="M:DMMAffiDBEntity.Migrations.DBMigration_Ver002.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
-            <inheritdoc />
-        </member>
-        <member name="M:DMMAffiDBEntity.Migrations.DBMigration_Ver002.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
-            <inheritdoc />
-        </member>
-        <member name="M:DMMAffiDBEntity.Migrations.DBMigration_Ver002.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
-            <inheritdoc />
-        </member>
-        <member name="T:DMMAffiDBEntity.Migrations.DBMigration_Ver003">
-            <inheritdoc />
-        </member>
-        <member name="M:DMMAffiDBEntity.Migrations.DBMigration_Ver003.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
-            <inheritdoc />
-        </member>
-        <member name="M:DMMAffiDBEntity.Migrations.DBMigration_Ver003.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
-            <inheritdoc />
-        </member>
-        <member name="M:DMMAffiDBEntity.Migrations.DBMigration_Ver003.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
             <inheritdoc />
         </member>
     </members>
