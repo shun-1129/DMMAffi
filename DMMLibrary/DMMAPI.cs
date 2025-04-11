@@ -1,5 +1,4 @@
-﻿using Newtonsoft.Json.Linq;
-using DMMLibrary.Models.Data;
+﻿using DMMLibrary.Models.Data;
 using System.Text.Json;
 
 namespace DMMLibrary
@@ -32,21 +31,8 @@ namespace DMMLibrary
         public async Task<List<Site>> SearchFloor ( Dictionary<string , string>? keywordDict = null )
         {
             const string END_POINT = "/FloorList";
-            JToken jToken = await _common.APIRequest ( END_POINT , keywordDict ?? new Dictionary<string, string> () );
-
-            List<JToken> jTokens = jToken["site"]?.ToList () ?? new List<JToken> ();
-            List<Site> result = new List<Site> ();
-            foreach ( JToken token in jTokens )
-            {
-                Site? temp = token.ToObject<Site> ();  
-
-                if ( temp != null )
-                {
-                    result.Add ( temp );
-                }
-            }
-
-            return result;
+            APIResult apiResult = await _common.APIRequest ( END_POINT , keywordDict ?? new Dictionary<string, string> () );
+            return apiResult.result.site;
         }
     }
 }
