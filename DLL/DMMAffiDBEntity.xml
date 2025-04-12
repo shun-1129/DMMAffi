@@ -35,6 +35,11 @@
             フロア詳細マスタ
             </summary>
         </member>
+        <member name="P:DMMAffiDBEntity.ApplicationDbContext.TMasterManagements">
+            <summary>
+            マスタ管理テーブル
+            </summary>
+        </member>
         <member name="P:DMMAffiDBEntity.ApplicationDbContext.TProducts">
             <summary>
             商品テーブル
@@ -187,6 +192,21 @@
             論理削除
             </summary>
         </member>
+        <member name="T:DMMAffiDBEntity.Entities.Transaction.TMasterManagement">
+            <summary>
+            マスタ管理テーブル
+            </summary>
+        </member>
+        <member name="P:DMMAffiDBEntity.Entities.Transaction.TMasterManagement.Id">
+            <summary>
+            マスタ管理ID
+            </summary>
+        </member>
+        <member name="P:DMMAffiDBEntity.Entities.Transaction.TMasterManagement.MasterChangeDate">
+            <summary>
+            マスタ更新日時
+            </summary>
+        </member>
         <member name="T:DMMAffiDBEntity.Entities.Transaction.TProduct">
             <summary>
             商品テーブル
@@ -261,6 +281,18 @@
             <inheritdoc />
         </member>
         <member name="M:DMMAffiDBEntity.Migrations.DBMigration_Ver001.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:DMMAffiDBEntity.Migrations.DBMigration_Ver002">
+            <inheritdoc />
+        </member>
+        <member name="M:DMMAffiDBEntity.Migrations.DBMigration_Ver002.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:DMMAffiDBEntity.Migrations.DBMigration_Ver002.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:DMMAffiDBEntity.Migrations.DBMigration_Ver002.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
             <inheritdoc />
         </member>
     </members>
