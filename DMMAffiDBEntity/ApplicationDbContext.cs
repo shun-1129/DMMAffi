@@ -45,6 +45,10 @@ namespace DMMAffiDBEntity
 
         #region トランザクション
         /// <summary>
+        /// マスタ管理テーブル
+        /// </summary>
+        public DbSet<TMasterManagement> TMasterManagements { get; set; }
+        /// <summary>
         /// 商品テーブル
         /// </summary>
         public DbSet<TProduct> TProducts { get; set; }
@@ -107,14 +111,19 @@ namespace DMMAffiDBEntity
             #endregion
 
             #region トランザクション
-            // 商品テーブル
+            // マスタ管理テーブル定義
+            modelBuilder.Entity<TMasterManagement> ( entity =>
+            {
+                entity.HasKey ( x => x.Id ).HasName ( "t_mastar_management_PKC" );
+            } );
+            // 商品テーブル定義
             modelBuilder.Entity<TProduct> ( entity =>
             {
                 entity.HasKey ( x => x.Id ).HasName ( "t_product_PKC" );
                 entity.Property ( x => x.Id ).HasColumnType ( "bigserial" );
                 entity.Property ( x => x.ProductContent ).HasColumnType ( "jsonb" );
             } );
-            // 商品詳細テーブル
+            // 商品詳細テーブル定義
             modelBuilder.Entity<TProductDetail> ( entity =>
             {
                 entity.HasKey ( x => x.ProductId ).HasName ( "t_product_detail_PKC" );
