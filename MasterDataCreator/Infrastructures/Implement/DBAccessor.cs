@@ -1,5 +1,6 @@
 ﻿using DMMAffiDBEntity;
 using DMMAffiDBEntity.Entities.Master;
+using DMMAffiDBEntity.Entities.Transaction;
 using MasterDataCreator.Infrastructures.Interface;
 using Microsoft.EntityFrameworkCore;
 using System.Threading.Tasks;
@@ -47,6 +48,27 @@ namespace MasterDataCreator.Infrastructures.Implement
         {
             return await _applicationDbContext.MAffiliateUsers.ToListAsync ();
         }
+
+        public async Task<List<MFloor>> GetMFloorsAsync ()
+        {
+            return await _applicationDbContext.MFloors.ToListAsync ();
+        }
+
+        public async Task<List<MFloorDetail>> GetFloorDetailsAsync ()
+        {
+            return await _applicationDbContext.MFloorDetails.ToListAsync ();
+        }
+        #endregion
+        #region トランザクション
+        /// <summary>
+        /// マスタ管理テーブル取得
+        /// </summary>
+        /// <param name="id">取得対象のID</param>
+        /// <returns>マスタ管理テーブル</returns>
+        public async Task<TMasterManagement?> GetMasterManagementAsync ( int id )
+        {
+            return await _applicationDbContext.TMasterManagements.Where ( x => x.Id == id ).FirstOrDefaultAsync ();
+        }
         #endregion
         #endregion
 
@@ -73,6 +95,33 @@ namespace MasterDataCreator.Infrastructures.Implement
                 mFloor.Id = ++lastId;
                 _applicationDbContext.MFloors.Add ( mFloor );
             }
+        }
+
+        public async Task InsertMFloorDetail ( List<MFloorDetail> mFloorDetails )
+        {
+            List<int> floorId = mFloorDetails.Select ( x => x.DMMFloorId ).ToList ();
+            List<string> floorName = mFloorDetails.Select ( x => x.DMMFloorName ).ToList ();
+
+            List<MFloorDetail> floorDetails = await _applicationDbContext.MFloorDetails
+                .Where ( x => floorId.Contains ( x.DMMFloorId ) && floorName.Contains ( x.DMMFloorName ) )
+                .ToListAsync ();
+
+            foreach ( MFloorDetail mFloorDetail in mFloorDetails )
+            {
+                if ( floorDetails.Any ( x => x.DMMFloorId == mFloorDetail.DMMFloorId && x.DMMFloorName == mFloorDetail.DMMFloorName ) )
+                {
+                    continue;
+                }
+
+                _applicationDbContext.MFloorDetails.Add ( mFloorDetail );
+            }
+        }
+        #endregion
+
+        #region 更新
+        public void UpdateMasterManagement ( TMasterManagement masterManagement )
+        {
+
         }
         #endregion
     }
