@@ -25,14 +25,24 @@
             アフィリエイトユーザマスタ
             </summary>
         </member>
+        <member name="P:DMMAffiDBEntity.ApplicationDbContext.MSites">
+            <summary>
+            フロアマスタ
+            </summary>
+        </member>
+        <member name="P:DMMAffiDBEntity.ApplicationDbContext.MServices">
+            <summary>
+            サービスマスタ
+            </summary>
+        </member>
         <member name="P:DMMAffiDBEntity.ApplicationDbContext.MFloors">
             <summary>
             フロアマスタ
             </summary>
         </member>
-        <member name="P:DMMAffiDBEntity.ApplicationDbContext.MFloorDetails">
+        <member name="P:DMMAffiDBEntity.ApplicationDbContext.MGenres">
             <summary>
-            フロア詳細マスタ
+            ジャンルマスタ
             </summary>
         </member>
         <member name="P:DMMAffiDBEntity.ApplicationDbContext.TMasterManagements">
@@ -97,6 +107,31 @@
             更新プログラム
             </summary>
         </member>
+        <member name="T:DMMAffiDBEntity.Entities.ComparableEntityBase">
+            <summary>
+            エンティティ比較クラス
+            </summary>
+        </member>
+        <member name="M:DMMAffiDBEntity.Entities.ComparableEntityBase.GetDifferences``1(``0,System.Boolean,System.String[])">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="other"></param>
+            <param name="includeBaseProperties"></param>
+            <param name="additionalExcludedProperties"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DMMAffiDBEntity.Entities.ComparableEntityBase.IsEqualTo``1(``0,System.Boolean,System.String[])">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="other"></param>
+            <param name="includeBaseProperties"></param>
+            <param name="additionalExcludedProperties"></param>
+            <returns></returns>
+        </member>
         <member name="T:DMMAffiDBEntity.Entities.Master.MAffiliateUser">
             <summary>
             アフィリエイトユーザマスタモデルクラス
@@ -124,7 +159,7 @@
         </member>
         <member name="T:DMMAffiDBEntity.Entities.Master.MFloor">
             <summary>
-            フロアマスタモデルクラス
+            フロアマスタ
             </summary>
         </member>
         <member name="P:DMMAffiDBEntity.Entities.Master.MFloor.Id">
@@ -132,19 +167,29 @@
             フロアマスタID
             </summary>
         </member>
-        <member name="P:DMMAffiDBEntity.Entities.Master.MFloor.DMMSiteName">
+        <member name="P:DMMAffiDBEntity.Entities.Master.MFloor.SiteId">
             <summary>
-            DMM サイト名
+            サイトマスタID
             </summary>
         </member>
-        <member name="P:DMMAffiDBEntity.Entities.Master.MFloor.DMMSiteCode">
+        <member name="P:DMMAffiDBEntity.Entities.Master.MFloor.ServiceId">
             <summary>
-            DMM サイトコード
+            サービスマスタID
             </summary>
         </member>
-        <member name="P:DMMAffiDBEntity.Entities.Master.MFloor.Content">
+        <member name="P:DMMAffiDBEntity.Entities.Master.MFloor.FloorId">
             <summary>
-            内容
+            フロアID
+            </summary>
+        </member>
+        <member name="P:DMMAffiDBEntity.Entities.Master.MFloor.FloorName">
+            <summary>
+            DMM フロア名
+            </summary>
+        </member>
+        <member name="P:DMMAffiDBEntity.Entities.Master.MFloor.FloorCode">
+            <summary>
+            DMM フロアコード
             </summary>
         </member>
         <member name="P:DMMAffiDBEntity.Entities.Master.MFloor.IsDeleted">
@@ -152,42 +197,92 @@
             論理削除
             </summary>
         </member>
-        <member name="T:DMMAffiDBEntity.Entities.Master.MFloorDetail">
+        <member name="T:DMMAffiDBEntity.Entities.Master.MGenre">
             <summary>
-            フロア詳細マスタ
+            
             </summary>
         </member>
-        <member name="P:DMMAffiDBEntity.Entities.Master.MFloorDetail.FloorId">
+        <member name="P:DMMAffiDBEntity.Entities.Master.MGenre.Id">
+            <summary>
+            ジャンルマスタID
+            </summary>
+        </member>
+        <member name="P:DMMAffiDBEntity.Entities.Master.MGenre.FloorId">
             <summary>
             フロアマスタID
             </summary>
         </member>
-        <member name="P:DMMAffiDBEntity.Entities.Master.MFloorDetail.DMMFloorId">
+        <member name="P:DMMAffiDBEntity.Entities.Master.MGenre.GenreId">
             <summary>
-            DMM フロアID
+            ジャンルID
             </summary>
         </member>
-        <member name="P:DMMAffiDBEntity.Entities.Master.MFloorDetail.DMMServiceName">
+        <member name="P:DMMAffiDBEntity.Entities.Master.MGenre.Name">
             <summary>
-            DMM サービス名
+            ジャンル名称
             </summary>
         </member>
-        <member name="P:DMMAffiDBEntity.Entities.Master.MFloorDetail.DMMServiceCode">
+        <member name="P:DMMAffiDBEntity.Entities.Master.MGenre.Ruby">
             <summary>
-            DMM サービスコード
+            ジャンル名称(読み仮名)
             </summary>
         </member>
-        <member name="P:DMMAffiDBEntity.Entities.Master.MFloorDetail.DMMFloorName">
+        <member name="P:DMMAffiDBEntity.Entities.Master.MGenre.ListUrl">
             <summary>
-            DMM フロア名
+            リストページURL
             </summary>
         </member>
-        <member name="P:DMMAffiDBEntity.Entities.Master.MFloorDetail.DMMFloorCode">
+        <member name="P:DMMAffiDBEntity.Entities.Master.MGenre.IsDeleted">
             <summary>
-            DMM フロアコード
+            論理削除
             </summary>
         </member>
-        <member name="P:DMMAffiDBEntity.Entities.Master.MFloorDetail.IsDeleted">
+        <member name="T:DMMAffiDBEntity.Entities.Master.MService">
+            <summary>
+            サービスマスタ
+            </summary>
+        </member>
+        <member name="P:DMMAffiDBEntity.Entities.Master.MService.Id">
+            <summary>
+            サービスマスタID
+            </summary>
+        </member>
+        <member name="P:DMMAffiDBEntity.Entities.Master.MService.ServiceName">
+            <summary>
+            サービス名称
+            </summary>
+        </member>
+        <member name="P:DMMAffiDBEntity.Entities.Master.MService.ServiceCode">
+            <summary>
+            サービスコード
+            </summary>
+        </member>
+        <member name="P:DMMAffiDBEntity.Entities.Master.MService.IsDeleted">
+            <summary>
+            論理削除
+            </summary>
+        </member>
+        <member name="T:DMMAffiDBEntity.Entities.Master.MSite">
+            <summary>
+            サイトマスタ
+            </summary>
+        </member>
+        <member name="P:DMMAffiDBEntity.Entities.Master.MSite.Id">
+            <summary>
+            サイトマスタID
+            </summary>
+        </member>
+        <member name="P:DMMAffiDBEntity.Entities.Master.MSite.SiteName">
+            <summary>
+            サイト名
+            </summary>
+        </member>
+        <member name="P:DMMAffiDBEntity.Entities.Master.MSite.SiteCode">
+            <summary>
+            サイトコード
+            </summary>
+        </member>
+        <member name="P:DMMAffiDBEntity.Entities.Master.MSite.IsDeleted">
             <summary>
             論理削除
             </summary>
@@ -227,17 +322,17 @@
             商品詳細テーブル
             </summary>
         </member>
-        <member name="P:DMMAffiDBEntity.Entities.Transaction.TProductDetail.ProductId">
+        <member name="P:DMMAffiDBEntity.Entities.Transaction.TProductDetail.TProductId">
             <summary>
             商品ID
             </summary>
         </member>
-        <member name="P:DMMAffiDBEntity.Entities.Transaction.TProductDetail.DMMContentId">
+        <member name="P:DMMAffiDBEntity.Entities.Transaction.TProductDetail.ContentId">
             <summary>
             DMM 商品ID
             </summary>
         </member>
-        <member name="P:DMMAffiDBEntity.Entities.Transaction.TProductDetail.DMMProductId">
+        <member name="P:DMMAffiDBEntity.Entities.Transaction.TProductDetail.ProductId">
             <summary>
             DMM 品番ID
             </summary>
@@ -281,18 +376,6 @@
             <inheritdoc />
         </member>
         <member name="M:DMMAffiDBEntity.Migrations.DBMigration_Ver001.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
-            <inheritdoc />
-        </member>
-        <member name="T:DMMAffiDBEntity.Migrations.DBMigration_Ver002">
-            <inheritdoc />
-        </member>
-        <member name="M:DMMAffiDBEntity.Migrations.DBMigration_Ver002.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
-            <inheritdoc />
-        </member>
-        <member name="M:DMMAffiDBEntity.Migrations.DBMigration_Ver002.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
-            <inheritdoc />
-        </member>
-        <member name="M:DMMAffiDBEntity.Migrations.DBMigration_Ver002.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
             <inheritdoc />
         </member>
     </members>

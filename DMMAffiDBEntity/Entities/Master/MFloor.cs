@@ -1,16 +1,15 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
-using System.Text.Json;
 
 namespace DMMAffiDBEntity.Entities.Master
 {
     /// <summary>
-    /// フロアマスタモデルクラス
+    /// フロアマスタ
     /// </summary>
     [Table ( "m_floor" )]
     [Comment ( "フロアマスタ" )]
-    public class MFloor : BaseEntityColumn
+    public class MFloor : ComparableEntityBase
     {
         /// <summary>
         /// フロアマスタID
@@ -18,35 +17,51 @@ namespace DMMAffiDBEntity.Entities.Master
         [Key]
         [Required]
         [Column ( "id" )]
-        [Comment ( "フロアマスタID:【値例】1" )]
+        [Comment ( "フロアマスタID" )]
         [DatabaseGenerated ( DatabaseGeneratedOption.None )]
         public int Id { get; set; }
 
         /// <summary>
-        /// DMM サイト名
+        /// サイトマスタID
         /// </summary>
         [Required]
-        [Column ( "dmm_site_name" )]
-        [Comment ( "DMM サイト名" )]
-        [StringLength ( 128 )]
-        public string DMMSiteName { get; set; } = string.Empty;
+        [Column ( "m_site_id" )]
+        [Comment ( "サイトマスタID:【値例】1" )]
+        public int SiteId { get; set; }
 
         /// <summary>
-        /// DMM サイトコード
+        /// サービスマスタID
         /// </summary>
         [Required]
-        [Column ( "dmm_site_code" )]
-        [Comment ( "DMM サイトコード" )]
-        [StringLength ( 128 )]
-        public string DMMSiteCode { get; set; } = string.Empty;
+        [Column ( "m_service_id" )]
+        [Comment ( "サービスマスタID:【値例】1" )]
+        public int ServiceId { get; set; }
 
         /// <summary>
-        /// 内容
+        /// フロアID
         /// </summary>
         [Required]
-        [Column ( "content" , TypeName = "jsonb" )]
-        [Comment ( "コンテンツ:【値例】" )]
-        public JsonDocument Content { get; set; } = JsonDocument.Parse ( "{}" );
+        [Column ( "floor_id" )]
+        [Comment ( "フロアID:【値例】1" )]
+        public int FloorId { get; set; }
+
+        /// <summary>
+        /// DMM フロア名
+        /// </summary>
+        [Required]
+        [Column ( "floor_name" )]
+        [Comment ( "フロア名:【値例】" )]
+        [StringLength ( 128 )]
+        public string FloorName { get; set; } = string.Empty;
+
+        /// <summary>
+        /// DMM フロアコード
+        /// </summary>
+        [Required]
+        [Column ( "floor_code" )]
+        [Comment ( "フロアコード:【値例】" )]
+        [StringLength ( 128 )]
+        public string FloorCode { get; set; } = string.Empty;
 
         /// <summary>
         /// 論理削除

@@ -10,14 +10,14 @@ namespace DMMAffiDBEntity.Entities.Transaction
     /// </summary>
     [Table ( "t_product" )]
     [Comment ( "商品テーブル" )]
-    public class TProduct : BaseEntityColumn
+    public class TProduct : ComparableEntityBase
     {
         /// <summary>
         /// 商品ID
         /// </summary>
         [Key]
         [Required]
-        [Column ( "id" )]
+        [Column ( "id" , TypeName = "bigserial" )]
         [Comment ( "商品ID:【値例】1" )]
         [DatabaseGenerated ( DatabaseGeneratedOption.None )]
         public long Id { get; set; }
@@ -26,7 +26,7 @@ namespace DMMAffiDBEntity.Entities.Transaction
         /// 商品内容
         /// </summary>
         [Required]
-        [Column ( "product_content" )]
+        [Column ( "product_content" , TypeName = "jsonb" )]
         [Comment ( "商品内容:【値例】" )]
         public JsonDocument ProductContent { get; set; } = JsonDocument.Parse ( "{}" );
     }

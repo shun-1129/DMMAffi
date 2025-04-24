@@ -9,7 +9,7 @@ namespace DMMAffiDBEntity.Entities.Transaction
     /// </summary>
     [Table ( "t_master_management" )]
     [Comment ( "マスタ管理テーブル" )]
-    public class TMasterManagement : BaseEntityColumn
+    public class TMasterManagement : ComparableEntityBase
     {
         /// <summary>
         /// マスタ管理ID

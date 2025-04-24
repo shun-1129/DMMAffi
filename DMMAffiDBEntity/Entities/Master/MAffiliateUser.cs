@@ -9,7 +9,7 @@ namespace DMMAffiDBEntity.Entities.Master
     /// </summary>
     [Table ( "m_affiliate_user" )]
     [Comment ( "アフィリエイトユーザマスタ" )]
-    public class MAffiliateUser : BaseEntityColumn
+    public class MAffiliateUser : ComparableEntityBase
     {
         /// <summary>
         /// アフィリエイトユーザマスタID

@@ -33,11 +33,19 @@ namespace DMMAffiDBEntity
         /// <summary>
         /// フロアマスタ
         /// </summary>
+        public DbSet<MSite> MSites { get; set; }
+        /// <summary>
+        /// サービスマスタ
+        /// </summary>
+        public DbSet<MService> MServices { get; set; }
+        /// <summary>
+        /// フロアマスタ
+        /// </summary>
         public DbSet<MFloor> MFloors { get; set; }
         /// <summary>
-        /// フロア詳細マスタ
+        /// ジャンルマスタ
         /// </summary>
-        public DbSet<MFloorDetail> MFloorDetails { get; set; }
+        public DbSet<MGenre> MGenres { get; set; }
         #endregion
 
         #region システム
@@ -86,23 +94,32 @@ namespace DMMAffiDBEntity
                 entity.HasKey ( x => x.Id ).HasName ( "m_affiliate_user_PKC" );
                 entity.HasQueryFilter ( x => !x.IsDeleted );
             } );
+            // サイトマスタ定義
+            modelBuilder.Entity<MSite> ( entity =>
+            {
+                entity.HasKey ( x => x.Id ).HasName ( "m_site_PKC" );
+                entity.Property ( x => x.Id ).HasColumnType ( "serial" );
+                entity.HasQueryFilter ( x => !x.IsDeleted );
+            } );
+            // サービスマスタ定義
+            modelBuilder.Entity<MService> ( entity =>
+            {
+                entity.HasKey ( x => x.Id ).HasName ( "m_service_PKC" );
+                entity.Property ( x => x.Id ).HasColumnType ( "serial" );
+                entity.HasQueryFilter ( x => !x.IsDeleted );
+            } );
             // フロアマスタ定義
             modelBuilder.Entity<MFloor> ( entity =>
             {
                 entity.HasKey ( x => x.Id ).HasName ( "m_floor_PKC" );
+                entity.Property ( x => x.Id ).HasColumnType ( "serial" );
                 entity.HasQueryFilter ( x => !x.IsDeleted );
             } );
-            // フロア詳細マスタ定義
-            modelBuilder.Entity<MFloorDetail> ( entity =>
+            // ジャンルマスタ定義
+            modelBuilder.Entity<MGenre> ( entity =>
             {
-                entity.HasKey ( x => new
-                {
-                    x.FloorId ,
-                    x.DMMFloorId,
-                    x.DMMServiceName
-                } )
-                .HasName ( "m_floor_detail_PKC" );
-
+                entity.HasKey ( x => x.Id ).HasName ( "m_genre_PKC" );
+                entity.Property ( x => x.Id ).HasColumnType ( "serial" );
                 entity.HasQueryFilter ( x => !x.IsDeleted );
             } );
             #endregion
@@ -120,13 +137,11 @@ namespace DMMAffiDBEntity
             modelBuilder.Entity<TProduct> ( entity =>
             {
                 entity.HasKey ( x => x.Id ).HasName ( "t_product_PKC" );
-                entity.Property ( x => x.Id ).HasColumnType ( "bigserial" );
-                entity.Property ( x => x.ProductContent ).HasColumnType ( "jsonb" );
             } );
             // 商品詳細テーブル定義
             modelBuilder.Entity<TProductDetail> ( entity =>
             {
-                entity.HasKey ( x => x.ProductId ).HasName ( "t_product_detail_PKC" );
+                entity.HasKey ( x => x.TProductId ).HasName ( "t_product_detail_PKC" );
             } );
             #endregion
         }
