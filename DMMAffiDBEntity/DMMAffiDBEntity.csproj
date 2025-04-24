@@ -8,7 +8,7 @@
   </PropertyGroup>
 
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="if &quot;$(Configuration)&quot; == &quot;Release&quot; (&#xD;&#xA;    xcopy &quot;$(TargetDir)$(TargetName).dll&quot; &quot;$(ProjectDir)..\DLL\&quot; /Y&#xD;&#xA;    xcopy &quot;$(TargetDir)$(TargetName).xml&quot; &quot;$(ProjectDir)..\DLL\&quot; /Y&#xD;&#xA;)" />
+    <Exec Command="&quot;$(ProjectDir)DLLCopy.bat&quot; &quot;$(Configuration)&quot; &quot;$(TargetDir)&quot; &quot;$(TargetName)&quot; &quot;$(ProjectDir)&quot;" />
   </Target>
 
   <ItemGroup>
